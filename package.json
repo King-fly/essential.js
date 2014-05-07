@@ -1,0 +1,12 @@
+{
+  "author": "Cedric Ruiz",
+  "description": "Essential.js - Functional JavaScript the right way",
+  "version": "1.0.0",
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "^3.5.5",
+    "gulp-plumber": "^0.5.6",
+    "gulp-rename": "^1.2.0",
+    "gulp-uglify": "^0.2.1"
+  }
+}
