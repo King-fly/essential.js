@@ -6,6 +6,7 @@ Functional JavaScript the right way.
 
 ### Index
 
+- [Highlights](https://github.com/elclanrs/essential.js#highlights)
 - [How to](https://github.com/elclanrs/essential.js#how-to)
 - [Functions](https://github.com/elclanrs/essential.js#functions):  
 [id](https://github.com/elclanrs/essential.js#id) | 
@@ -24,6 +25,7 @@ Functional JavaScript the right way.
 [fold](https://github.com/elclanrs/essential.js#fold) | 
 [map](https://github.com/elclanrs/essential.js#map) | 
 [filter](https://github.com/elclanrs/essential.js#filter) | 
+[reject](https://github.com/elclanrs/essential.js#reject) | 
 [unique](https://github.com/elclanrs/essential.js#unique) | 
 [flatten](https://github.com/elclanrs/essential.js#flatten) | 
 [pluck](https://github.com/elclanrs/essential.js#pluck) | 
@@ -32,10 +34,20 @@ Functional JavaScript the right way.
 [zip](https://github.com/elclanrs/essential.js#zip) | 
 [concatF](https://github.com/elclanrs/essential.js#concatf) | 
 [shuffle](https://github.com/elclanrs/essential.js#shuffle) | 
-[sortBy](https://github.com/elclanrs/essential.js#sortbsortby) | 
+[sortBy](https://github.com/elclanrs/essential.js#sortby) | 
+[countBy](https://github.com/elclanrs/essential.js#countby) | 
 [template](https://github.com/elclanrs/essential.js#template) | 
 [format](https://github.com/elclanrs/essential.js#format) | 
 [gmatch](https://github.com/elclanrs/essential.js#gmatch)
+
+### Highlights
+
+Essential.js is a simpler alternative to Underscore, with everything you need, and nothing you don't need. Essential.js gives you a solid base to get started with functional programming in JavaScript "the right way":
+
+- All non-variadic functions with more than one argument are curried.
+- Arguments are in proper order for better composition.
+- Includes a few helpers not found in Underscore.
+- Inspired by Brian Lonsdorf's talk, [Hey Underscore, You're Doing it Wrong](https://www.youtube.com/watch?v=m3svKOdZijA).
 
 ### How to
 
@@ -56,9 +68,6 @@ essential.extend(global, essential);
 ```
 
 ### Functions
-
-- Every non-variadic function with more than one argument is curried.
-- Arguments are in proper order for better composition.
 
 #### id
 ```javascript
@@ -102,9 +111,16 @@ add1by2(2); //=> 6
 var add = function(x, y){return x + y};
 var add1 = partial(add, 1);
 add1(2); //=> 3
+// placeholder
+var name = function(first, last, nick) {
+  return format([first, last, nick], '%1 %2 is also known as "%3"');
+};
+partial(name, 'Peter', _, 'Pete')('Johnson');
+//^ Peter Johnson is also known as "Pete"
 ```
 
 #### curry
+Not bound. Don't depend on `this`.
 ```javascript
 var add = curry(function(x, y){return x + y});
 var add1 = add(1);
@@ -179,6 +195,13 @@ var even = function(x){return x % 2 == 0};
 filter(even, arr); //=> [2]
 ```
 
+#### reject
+```javascript
+var arr = [1,2,3];
+var even = function(x){return x % 2 == 0};
+reject(even, arr); //=> [1,3]
+```
+
 #### unique
 ```javascript
 var arr = [1,1,2,2,3,3];
@@ -235,7 +258,7 @@ concatF(add1, by2)(xs); //=> [[2,3,4], [2,4,6]]
 ```
 
 #### shuffle
-Fisher-Yates shuffle. Mutates array.
+Fisher-Yates shuffle. No mutation, outputs copy.
 ```javascript
 shuffle([1,2,3,4,5]); //=> [2,5,4,1,3]
 ```
@@ -244,6 +267,12 @@ shuffle([1,2,3,4,5]); //=> [2,5,4,1,3]
 ```javascript
 var xs = [{x:20}, {x:40}, {x:30}, {x:10}];
 sortBy(pluck('x'), xs); //=> [{x:10}, {x:20}, {x:30}, {x:40}]
+```
+
+#### countBy
+```javascript
+var xs = [1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9];
+countBy(Math.round, xs); //=> {1:4, 2:5}
 ```
 
 #### template
