@@ -29,8 +29,11 @@ var els;
 // $('li').parent()
 els = qMap(parent, queryAll('li'));
 
-// $('ul').children().filter(function(x){ return $(this).text() == 'A' })
+// $('ul').children().filter(function(){ return $(this).text() == 'A' })
 els = filter(compose(is('A'), text), qMap(children, queryAll('ul')));
 
 // $('li').parents('ul')
 els = filter(compose(is('UL'), tag), qMap(parents, queryAll('li')));
+
+// $('li').siblings()
+els = qMap(siblings, queryAll('li:first-child'));
