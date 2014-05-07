@@ -1,6 +1,6 @@
 ## Essential.js
 
-Functional JavaScript the right way.  
+Functional JavaScript "the right way".  
 **License:** [MIT](http://opensource.org/licenses/MIT)  
 **Support:** [ES5 compliant browsers](http://kangax.github.io/es5-compat-table/)
 
@@ -42,7 +42,7 @@ Functional JavaScript the right way.
 
 ### Highlights
 
-Essential.js is a simpler alternative to Underscore, with everything you need, and nothing you don't need. Essential.js gives you a solid base to get started with functional programming in JavaScript "the right way":
+Essential.js is a simpler alternative to Underscore that gives you a solid base to get started with functional programming in JavaScript "the right way":
 
 - All non-variadic functions with more than one argument are curried.
 - Arguments are in proper order for better composition.
