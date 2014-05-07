@@ -107,6 +107,7 @@ add1by2(2); //=> 6
 ```
 
 #### partial
+The placeholder `_` is synonymous with `undefined`.
 ```javascript
 var add = function(x, y){return x + y};
 var add1 = partial(add, 1);
