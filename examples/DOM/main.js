@@ -35,5 +35,5 @@ els = filter(compose(is('A'), text), qMap(children, queryAll('ul')));
 // $('li').parents('ul')
 els = filter(compose(is('UL'), tag), qMap(parents, queryAll('li')));
 
-// $('li').siblings()
+// $('li:first-child').siblings()
 els = qMap(siblings, queryAll('li:first-child'));
