@@ -42,12 +42,12 @@ Functional JavaScript "the right way".
 
 ### Highlights
 
-Essential.js is a simpler alternative to Underscore that gives you a solid base to get started with functional programming in JavaScript "the right way":
+Essential.js is a simpler alternative to [Underscore.js](http://underscorejs.org/) that gives you a solid base to get started with functional programming in JavaScript "the right way":
 
 - All non-variadic functions with more than one argument are curried.
 - Arguments are in proper order for better composition.
 - Includes a few helpers not found in Underscore.
-- Inspired by Brian Lonsdorf's talk, [Hey Underscore, You're Doing it Wrong](https://www.youtube.com/watch?v=m3svKOdZijA).
+- Inspired by [Brian Lonsdorf's](https://github.com/DrBoolean) talk, [Hey Underscore, You're Doing it Wrong](https://www.youtube.com/watch?v=m3svKOdZijA).
 
 ### How to
 
